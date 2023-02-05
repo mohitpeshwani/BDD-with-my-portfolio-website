@@ -19,14 +19,14 @@ def menu_bar(context):
 @then("verifying wheather the buttons {items}")
 def menu_items(context,items):
     if(items.lower()=="home"):
-        context.driver.find_element(By.LINK_TEXT,"HOME").is_displayed()
+        context.driver.find_element(By.LINK_TEXT,"HOME").click()
+        assert "#" in context.driver.current_url, " Home menu is\'t working fine"
     elif (items.lower() == "about"):
-        context.driver.find_element(By.LINK_TEXT, "ABOUT").is_displayed()
+        context.driver.find_element(By.LINK_TEXT, "ABOUT").click()
+        assert "#about" in context.driver.current_url, " Home menu is\'t working fine"
     elif (items.lower() == "blogs"):
-        context.driver.find_element(By.LINK_TEXT, "BLOGS").is_displayed()
+        context.driver.find_element(By.LINK_TEXT, "BLOGS").click()
+        assert "#blog" in context.driver.current_url, " Home menu is\'t working fine"
     elif (items.lower() == "services"):
         context.driver.find_element(By.LINK_TEXT,"SERVICES").is_displayed()
-
-@then(u'I check for the Download Resume button')
-def step_impl(context):
-    pass
+        assert "#" in context.driver.current_url, " Home menu is\'t working fine"
